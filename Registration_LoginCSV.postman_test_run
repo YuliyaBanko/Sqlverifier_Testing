@@ -1,0 +1,703 @@
+{
+	"id": "ce4e08cb-4f8d-4043-9288-f8d219cd5e83",
+	"name": "Registration_Login",
+	"timestamp": "2024-10-09T11:10:41.886Z",
+	"collection_id": "33839261-4e11cddb-cc4a-46b2-8780-7fd2665f723c",
+	"folder_id": 0,
+	"environment_id": "33839261-06300881-e291-4d70-8c75-f65f35eb53d9",
+	"totalPass": 37,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-10-09T11:09:34.584Z",
+	"totalFail": 23,
+	"results": [
+		{
+			"id": "1d0f6e41-64e0-4383-8289-386a7887d8bd",
+			"name": "Успешная регистрация пользователя с валидными данными",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 265,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 201": false
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 17,
+					"fail": 3
+				}
+			},
+			"times": [
+				559,
+				361,
+				344,
+				354,
+				358,
+				363,
+				356,
+				357,
+				349,
+				363,
+				357,
+				353,
+				355,
+				378,
+				347,
+				348,
+				369,
+				278,
+				273,
+				265
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": true
+				},
+				{
+					"Status code is 201": false
+				},
+				{
+					"Status code is 201": false
+				},
+				{
+					"Status code is 201": false
+				}
+			]
+		},
+		{
+			"id": "b82325b6-d7d5-4f49-98ca-2948b0a9c40a",
+			"name": "Регистрация с уже существующим email",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 363,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				174,
+				181,
+				182,
+				179,
+				189,
+				182,
+				180,
+				185,
+				176,
+				185,
+				178,
+				181,
+				178,
+				177,
+				174,
+				177,
+				176,
+				363,
+				358,
+				363
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "af9f5f1c-2c06-41bc-8342-020fcac9afc9",
+			"name": "Регистрация с некорректными данными-Пароль меньше 4 символов",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 88,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				97,
+				96,
+				98,
+				94,
+				102,
+				104,
+				94,
+				98,
+				95,
+				94,
+				93,
+				96,
+				93,
+				94,
+				94,
+				92,
+				93,
+				93,
+				93,
+				88
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "5a536628-b038-4f7a-8d71-52c83f42bb95",
+			"name": "Регистрация с пустыми обязательными полями",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 257,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				264,
+				271,
+				269,
+				266,
+				275,
+				261,
+				272,
+				277,
+				267,
+				259,
+				271,
+				271,
+				277,
+				278,
+				267,
+				257,
+				266,
+				280,
+				259,
+				257
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "8d8ecf88-0357-47de-a8cc-0d2b071b4c2a",
+			"name": "Успешный логин admin_automation",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 335,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 20,
+					"fail": 0
+				}
+			},
+			"times": [
+				345,
+				345,
+				346,
+				343,
+				345,
+				342,
+				335,
+				349,
+				356,
+				364,
+				350,
+				344,
+				340,
+				439,
+				339,
+				338,
+				347,
+				334,
+				337,
+				335
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e7bc85c1-1928-4eb9-ad31-302159de8855",
+			"name": "Успешный логин user_teacher",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 340,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				335,
+				360,
+				344,
+				341,
+				344,
+				340,
+				344,
+				351,
+				346,
+				342,
+				339,
+				339,
+				334,
+				329,
+				338,
+				335,
+				330,
+				340,
+				341,
+				340
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "f2c0fc12-11e3-4968-b745-ed9bb5688ee7",
+			"name": "Успешный логин user_student",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 346,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				363,
+				351,
+				342,
+				346,
+				337,
+				342,
+				347,
+				341,
+				334,
+				351,
+				351,
+				345,
+				341,
+				347,
+				339,
+				335,
+				331,
+				338,
+				343,
+				346
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "65b39bb3-d776-4334-bab9-6e8c05aeb431",
+			"name": "Успешный логин авторизированного пользователя",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 341,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 200": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 20
+				}
+			},
+			"times": [
+				333,
+				352,
+				356,
+				339,
+				340,
+				335,
+				337,
+				351,
+				348,
+				350,
+				346,
+				332,
+				345,
+				331,
+				335,
+				353,
+				336,
+				346,
+				331,
+				341
+			],
+			"allTests": [
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				},
+				{
+					"Status code is 200": false
+				}
+			]
+		},
+		{
+			"id": "43b3ee96-2281-4078-b3bd-442c970c006c",
+			"name": "Неуспешный логин авторизированного пользователя",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 367,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				342,
+				338,
+				344,
+				338,
+				342,
+				341,
+				351,
+				336,
+				339,
+				341,
+				357,
+				337,
+				342,
+				331,
+				348,
+				331,
+				365,
+				337,
+				344,
+				367
+			],
+			"allTests": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		}
+	],
+	"count": 20,
+	"totalTime": 52853,
+	"collection": {
+		"requests": [
+			{
+				"id": "1d0f6e41-64e0-4383-8289-386a7887d8bd",
+				"method": "POST"
+			},
+			{
+				"id": "b82325b6-d7d5-4f49-98ca-2948b0a9c40a",
+				"method": "POST"
+			},
+			{
+				"id": "af9f5f1c-2c06-41bc-8342-020fcac9afc9",
+				"method": "POST"
+			},
+			{
+				"id": "5a536628-b038-4f7a-8d71-52c83f42bb95",
+				"method": "POST"
+			},
+			{
+				"id": "8d8ecf88-0357-47de-a8cc-0d2b071b4c2a",
+				"method": "POST"
+			},
+			{
+				"id": "e7bc85c1-1928-4eb9-ad31-302159de8855",
+				"method": "POST"
+			},
+			{
+				"id": "f2c0fc12-11e3-4968-b745-ed9bb5688ee7",
+				"method": "POST"
+			},
+			{
+				"id": "65b39bb3-d776-4334-bab9-6e8c05aeb431",
+				"method": "POST"
+			},
+			{
+				"id": "43b3ee96-2281-4078-b3bd-442c970c006c",
+				"method": "POST"
+			}
+		]
+	}
+}
