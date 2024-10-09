@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "4e11cddb-cc4a-46b2-8780-7fd2665f723c",
+		"name": "Registration_Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33839261",
+		"_collection_link": "https://www.postman.com/blue-sunset-554897/workspace/sqlverifiertest/collection/33839261-4e11cddb-cc4a-46b2-8780-7fd2665f723c?action=share&source=collection_link&creator=33839261"
+	},
+	"item": [
+		{
+			"name": "Успешная регистрация пользователя с валидными данными",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"Koko\",\r\n  \"firstName\": \"Yul\",\r\n  \"lastName\": \"Ban\",\r\n  \"email\": \"Koko@gmail.com\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"authorities\": [\r\n    \"string\"\r\n  ],\r\n  \"password\": \"Koko\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация с уже существующим email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"Zuzu3\",\r\n  \"firstName\": \"Yul\",\r\n  \"lastName\": \"Ban\",\r\n  \"email\": \"Koko@gmail.com\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"authorities\": [\r\n    \"string\"\r\n  ],\r\n  \"password\": \"Kokoko\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация с некорректными данными-Пароль меньше 4 символов",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"Kuku2ttttt\",\r\n  \"firstName\": \"Yul\",\r\n  \"lastName\": \"Ban\",\r\n  \"email\": \"kuku66@gmail.com\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"authorities\": [\r\n    \"string\"\r\n  ],\r\n  \"password\": \"55\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация с пустыми обязательными полями",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"login\": \"Kukggggg5\",\r\n  \"firstName\": \"Yul\",\r\n  \"lastName\": \"Ban\",\r\n  \"email\": \"\",\r\n  \"imageUrl\": \"string\",\r\n  \"activated\": true,\r\n  \"langKey\": \"string\",\r\n  \"createdBy\": \"string\",\r\n  \"createdDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"lastModifiedBy\": \"string\",\r\n  \"lastModifiedDate\": \"2024-10-06T16:39:09.945Z\",\r\n  \"authorities\": [\r\n    \"string\"\r\n  ],\r\n  \"password\": \"33333\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Успешный логин admin_automation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin_automation\",\r\n  \"password\": \"admin_automation\",\r\n  \"rememberMe\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "Успешный логин user_teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user_teacher\",\r\n  \"password\": \"user\",\r\n  \"rememberMe\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "Успешный логин user_student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user_student\",\r\n  \"password\": \"user\",\r\n  \"rememberMe\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "Успешный логин авторизированного пользователя",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Koko41\",\r\n  \"password\": \"Koko41\",\r\n  \"rememberMe\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/authenticate"
+			},
+			"response": []
+		},
+		{
+			"name": "Неуспешный логин авторизированного пользователя",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Koko41\",\r\n  \"password\": \"userZuzu2\",\r\n  \"rememberMe\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/authenticate"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api"
+		},
+		{
+			"key": "UrlRegistration\n",
+			"value": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"type": "string"
+		},
+		{
+			"key": "UrlLogin\n",
+			"value": "\nhttps://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate\n",
+			"type": "string"
+		}
+	]
+}
