@@ -1,5 +1,8 @@
 # Sqlverifier_Testing
 Contents Jira Project, API collections, API Environment
+# My Project
+[![CI](https://github.com/YuliyaBanko/Sqlverifier_Testing/actions/workflows/blank.yml/badge.svg)](https://github.com/YuliyaBanko/Sqlverifier_Testing/actions/workflows/blank.yml)
+
 ## Ссылки на проект
 
 - [Проект в Jira] ([https://your-jira-instance.atlassian.net/projects/PROJECT_KEY](https://yuliyabanko.atlassian.net/jira/software/projects/AWE/boards/6)
