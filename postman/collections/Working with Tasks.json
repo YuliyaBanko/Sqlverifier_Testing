@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "9c355158-638a-4013-80ea-58460c7b3acd",
+		"name": "Working with Tasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "33839261-9c355158-638a-4013-80ea-58460c7b3acd"
+	},
+	"item": [
+		{
+			"name": "Add Task Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"const responseData = pm.response.json();\r",
+							"pm.environment.set(\"taskID\", responseData.id);\r",
+							"console.log(\"Логин установлен:\", responseData.login);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "a5ab60ae-dc51-4b68-9dc0-842d5a1c5ac5"
+					}
+				}
+			],
+			"id": "4fa231cf-7d03-467f-90c4-a1ea86a03cec",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"text\": \"{{$randomWords}}\",\r\n  \"answer\": \"{{$randomWords}}\",\r\n  \"title\": \"{{$randomCatchPhrase}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}",
+					"host": [
+						"{{taskUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Task Admin Positive",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "ad4ad39f-6d0d-4b8d-89f1-8829816c31f4"
+					}
+				}
+			],
+			"id": "52184d7d-bbb9-44f4-83b9-4e41fe8743c4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{taskID}},\r\n  \"text\": \"{{$randomWords}}\",\r\n  \"answer\": \"{{$randomWords}}\",\r\n  \"title\": \"{{$randomCatchPhrase}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Task Admin EmptyID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "2bb79317-bcff-4d60-aa06-3bc06b5af572"
+					}
+				}
+			],
+			"id": "1f12e3fa-821d-4bdd-b8a4-55a02f9c5ca9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "{{taskID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": null,\r\n  \"text\": \"{{$randomWords}}\",\r\n  \"answer\": \"{{$randomWords}}\",\r\n  \"title\": \"{{$randomCatchPhrase}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Task Admin EmptyANSWER_Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "0827550d-c2fb-491a-9f1c-b6808204c65c"
+					}
+				}
+			],
+			"id": "6c5c2812-80d7-44a9-9934-bfa9b33f3b27",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "{{taskID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{taskID}},\r\n  \"text\": \"{{$randomWords}}\",\r\n  \"answer\": \"\",\r\n  \"title\": \"{{$randomCatchPhrase}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Task Admin EmptyTEXT_Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "8b65c3f3-5ca5-41a3-9443-3cac68775117"
+					}
+				}
+			],
+			"id": "800ce9f6-297a-43f6-80ea-b1636fc6268d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "{{taskID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{taskID}},\r\n  \"text\": \"\",\r\n  \"answer\": \"{{$randomWords}}\",\r\n  \"title\": \"{{$randomCatchPhrase}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Task Admin EmptyTITLE_Negative",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "1141546b-5e94-45f3-9c9c-8d25f4e27695"
+					}
+				}
+			],
+			"id": "e5655f85-b6f1-4d7c-90f0-ab41db777c67",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "{{taskID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{taskID}},\r\n  \"text\": \"{{$randomAbbreviation}}\",\r\n  \"answer\": \"{{$randomWords}}\",\r\n  \"title\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTask Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", () => {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "9cb47fa9-f082-4a05-94b6-c6dcdfc9ccc8"
+					}
+				}
+			],
+			"id": "64e65cdf-a9ba-4df9-ab2b-92d88f0e9d34",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "id",
+						"value": "{{taskID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", () => {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json()\r",
+							"pm.test(\"Deleted task cannot be seen\", () => {\r",
+							"    pm.expect(response.title).to.eql(\"Not Found\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"id": "0966e0f3-3513-44c5-909a-ebbb786cee85"
+					}
+				}
+			],
+			"id": "3456a1e0-5e29-4bac-8697-6215be2d0a0c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{adminToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{taskUrl}}/{{taskID}}",
+					"host": [
+						"{{taskUrl}}"
+					],
+					"path": [
+						"{{taskID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				],
+				"id": "a702a29b-9918-4caa-b7e7-4db0f18e0e90"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				],
+				"id": "5d4e48e0-6c88-49ef-9552-fd5bcc1abe42"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d8e2f44a-a123-4099-b8b9-36afc6923752",
+			"key": "adminToken",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbl9hdXRvbWF0aW9uIiwiZXhwIjoxNzI5NTczOTg2LCJhdXRoIjoiUk9MRV9BRE1JTiIsImlhdCI6MTcyOTQ4NzU4Nn0.HRYPbAgC7iSJwLBFiD3jaKuxmJHWU5RX8SkLFumfI-TuikG8glVTo79ItxlIV_SqbFocdMmqbSi12xaQurrC_A",
+			"type": "string"
+		}
+	]
+}
